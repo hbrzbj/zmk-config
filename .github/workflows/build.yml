@@ -2,4 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: hbrzbj/zmk-config/.github/workflows/build-user-config.yml@main
+    uses: hbrzbj/zmk-config/.github/workflows/build-user-config.yml@master
