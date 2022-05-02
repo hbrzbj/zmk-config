@@ -15,25 +15,12 @@
 include:
   - board: nrfmicro_13
     shield: corne_left
-  - board: nrfmicro_13
     shield: corne_right
-include:
-  - board: nrfmicro_13
     shield: sofle_left
-  - board: nrfmicro_13
     shield: sofle_right
-include:
-  - board: nrfmicro_13
     shield: lily58_left
-  - board: nrfmicro_13
     shield: lily58_right
-include:
-  - board: nrfmicro_13
     shield: clog_left
-  - board: nrfmicro_13
     shield: clog_right
-include:
-  - board: nrfmicro_13
     shield: cradio_left
-  - board: nrfmicro_13
     shield: cradio_right

@@ -114,11 +114,17 @@ jobs:
             cp build/zephyr/zmk.${{ inputs.fallback_binary }} "build/artifacts/${{ steps.variables.outputs.artifact-name }}.${{ inputs.fallback_binary }}"
           fi
 
-      - name: Upload images to Releases
-        uses: svenstaro/upload-release-action@2.2.0
+      - name: Archive (${{ steps.variables.outputs.display-name }})
+        uses: actions/upload-artifact@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/artifacts/*.uf2
-          tag: ${{ github.ref }}
-          overwrite: true
-          file_glob: true
+          name: firmware
+          path: build/artifacts
+
+      # - name: Upload images to Releases
+      #   uses: svenstaro/upload-release-action@2.2.0
+      #   with:
+      #     repo_token: ${{ secrets.GITHUB_TOKEN }}
+      #     file: build/artifacts/*.uf2
+      #     tag: ${{ github.ref }}
+      #     overwrite: true
+      #     file_glob: true
