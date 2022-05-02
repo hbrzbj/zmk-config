@@ -14,13 +14,26 @@
 ---
 include:
   - board: nrfmicro_13
-    - shield: corne_left
-    - shield: corne_right
-    - shield: sofle_left
-    - shield: sofle_right
-    - shield: lily58_left
-    - shield: lily58_right
-    - shield: clog_left
-    - shield: clog_right
-    - shield: cradio_left
-    - shield: cradio_right
+    shield: corne_left
+  - board: nrfmicro_13
+    shield: corne_right
+  - board: nrfmicro_13
+    shield: jorne_left
+  - board: nrfmicro_13
+    shield: jorne_right
+  - board: nrfmicro_13
+    shield: sofle_left
+  - board: nrfmicro_13
+    shield: sofle_right
+  - board: nrfmicro_13
+    shield: lily58_left
+  - board: nrfmicro_13
+    shield: lily58_right
+  - board: nrfmicro_13
+    shield: clog_left
+  - board: nrfmicro_13
+    shield: clog_right
+  - board: nrfmicro_13
+    shield: cradio_left
+  - board: nrfmicro_13
+    shield: cradio_right
