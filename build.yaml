@@ -37,3 +37,5 @@ include:
     shield: cradio_left
   - board: nrfmicro_13
     shield: cradio_right
+  - board: nrfmicro_13
+    shield: settings_reset
