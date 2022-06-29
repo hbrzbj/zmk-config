@@ -120,6 +120,9 @@ jobs:
           name: firmware
           path: build/artifacts
 
+
+      - name: Publish release
+        uses: eloquent/github-release-action@v2
       # - name: Upload images to Releases
       #   uses: svenstaro/upload-release-action@2.2.0
       #   with:
