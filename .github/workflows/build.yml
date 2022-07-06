@@ -1,10 +1,11 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
+  job1:
+    build:
     uses: hbrzbj/zmk-config/.github/workflows/build-user-config.yml@master
-
-jobs:
+  job2:
+    needs: job1
     steps:
       # - name: Publish release
       #   uses: eloquent/github-release-action@v2
