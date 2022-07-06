@@ -3,8 +3,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    steps:
-      - uses: hbrzbj/zmk-config/.github/workflows/build-user-config.yml@master
+    - uses: hbrzbj/zmk-config/.github/workflows/build-user-config.yml@master
 
       # - name: Publish release
       #   uses: eloquent/github-release-action@v2
@@ -16,7 +15,9 @@ jobs:
       #     tag: ${{ github.ref }}
       #     overwrite: true
       #     file_glob: true
-
+  release:
+    needs: build
+    steps:
       - name: Set Release Date
         run: |
           echo "RELEASE_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
