@@ -105,6 +105,7 @@ jobs:
 
       - name: Rename artifacts
         run: |
+          ls
           mkdir build/artifacts
           if [ -f build/zephyr/zmk.uf2 ]
           then
@@ -120,9 +121,8 @@ jobs:
           name: firmware
           path: build/artifacts
 
-
-      - name: Publish release
-        uses: eloquent/github-release-action@v2
+      # - name: Publish release
+      #   uses: eloquent/github-release-action@v2
       # - name: Upload images to Releases
       #   uses: svenstaro/upload-release-action@2.2.0
       #   with:
@@ -131,3 +131,17 @@ jobs:
       #     tag: ${{ github.ref }}
       #     overwrite: true
       #     file_glob: true
+
+      - name: Set Release Date
+        run: |
+          echo "RELEASE_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
+
+      - name: Create GitHub release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{env.RELEASE_DATE}}"
+          title: ${{ env.ReleaseVersion }}
+          prerelease: false
+          files: |
+            build/artifacts/*
