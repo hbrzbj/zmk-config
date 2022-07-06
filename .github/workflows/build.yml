@@ -1,5 +1,6 @@
 on: [push, pull_request, workflow_dispatch]
 
+
 jobs:
   build:
     steps:
@@ -16,16 +17,16 @@ jobs:
       #     overwrite: true
       #     file_glob: true
 
-     - name: Set Release Date
-       run: |
-         echo "RELEASE_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
+      - name: Set Release Date
+        run: |
+          echo "RELEASE_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
 
-     - name: Create GitHub release
-       uses: marvinpinto/action-automatic-releases@latest
-       with:
-         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-         automatic_release_tag: "${{env.RELEASE_DATE}}"
-         title: ${{ env.ReleaseVersion }}
-         prerelease: false
-         files: |
-           build/artifacts/*
+      - name: Create GitHub release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{env.RELEASE_DATE}}"
+          title: ${{ env.ReleaseVersion }}
+          prerelease: false
+          files: |
+            build/artifacts/*
